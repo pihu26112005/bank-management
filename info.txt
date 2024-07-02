@@ -1,0 +1,9 @@
+plaid --> in place of stripe for payment and bank purpose
+
+app write --> for backend developement
+
+chartjs --> styling library for any kind of chart 
+
+tailwind css --> css
+
+shadcn --> library for css like (tailwind css basically just like tailblocks, flowbite,) 
