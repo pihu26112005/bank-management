@@ -7,3 +7,35 @@ chartjs --> styling library for any kind of chart
 tailwind css --> css
 
 shadcn --> library for css like (tailwind css basically just like tailblocks, flowbite,) 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+typescript ki zarurat --> phle se types(alias), interfaces define kr diye, fir props me unka type define kr diya 
+
+grouping routes ki need --> ek group ke layout me side baar chahiye, ek ke me nhi so 2 groups, dono me pna layout just little change
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+in the first layout.tsx --> we have used how to use font styles from next/google 
+                            s1} import the classes
+                            s2) make its instance and pass some required options 
+                            s3) pass that instance as a classname
+
+types --> index.d.ts    hai  jisme sare alias(user defined type) define kr rkhe hai phle se hi 
+
+global css me " @layer " ka use krke kuch classes bnae hai jinka sue kr skte hai 
+
+react-countup --> for showing vo vala effect jisme number counting ki tarah ate hai, used in animatecounter in totalbalancebox
+
+import krte vaqt "@/components/something" kiya hai i thing @ root dir ko batata hai
+
+
+usePathname hook --> const path = usePathname();
+                     if the URL is https://example.com/about, usePathname would return /about.
+                     If the URL is localhost:3000/about/in?a=2, the usePathname hook would return /about/in
+useQueryparam --> ig 
+useLoaction hooke --> isse pura url access kr kste ho including pathname + query params 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

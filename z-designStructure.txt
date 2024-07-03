@@ -1,0 +1,29 @@
+humne sbse phle apne routes ko 2 group me baat diya kyokii ek group ko sidebar chhiye the and ek ko nhi 
+toh ek main layout hogi jo sbme apply hogi, fir dono group me apni seperate layout file hogi jisme bas sidebarr hoga ya nhi ye likha hoga 
+
+public nextjs me directly accessible hoga 
+
+humne props me jo bhi var pass kiya hai uska type define kiya hai, and sare types phle hi ek sathd define kr diye hai
+
+do side baar hai ek jo mobile me hidden hai and ek computer me hidden hai 
+
+children me us particular route ki page.tsx dispkay hogi
+
+1) header toh siple tha 
+
+2) totalBalanceBox me accounts ka chart, bank account number, total balance hai 
+    react-countup --> for showing vo vala effect jisme number counting ki tarah ate hai, used in animatecounter in totalbalancebox
+    doughnatchart use kiya from chartjs seperate
+
+3) sidebar
+    humne 4 routes ka ek object bnaya --> sidebarLinks index.ts me jisme image,route,label hai (kyokii hmare possibel 4 hi route hai)
+    humne inpe map krke 4 options bna diye
+    isme usePathname ka use krke current pathname find kiya, if that pathname(url me) === route(jo index.ts me hai) ke, toh vo active hoga  
+
+4) MobileNav 
+    isme humne shadcn ka sheet use kiya hai taaki side me click krke khule 
+    humne sare content ko "SheetClose" me wrap kiya taaki kahi bhi click krne pr automatic close ho jae
+
+5) RightSidebar 
+    ye sidebar sirf home page me hai baaki kisi page me nhi toh isko sirf home page me rkhna better hoga rather than keeping in layout or in seperate layout
+    isme humne 2 "BankCard" components render kiya hai div ke andar, ek relativ hai z=10, ek absolute hai z=0, taki ek ke upar dusra aaye

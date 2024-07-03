@@ -1,0 +1,9 @@
+shadcn ke compnents used -
+
+procedure --> bse phle shadcn ko install kro 
+then jo component chahiye uski installlation kro --> after that uski ek file ban jayegi component-->ui--> me 
+fri uako apni file me use kr skte hai 
+
+
+    1) sheet --> in MobileNav.tsx
+                 sheet is like extended form of dialog box
