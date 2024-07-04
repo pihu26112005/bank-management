@@ -27,3 +27,52 @@ children me us particular route ki page.tsx dispkay hogi
 5) RightSidebar 
     ye sidebar sirf home page me hai baaki kisi page me nhi toh isko sirf home page me rkhna better hoga rather than keeping in layout or in seperate layout
     isme humne 2 "BankCard" components render kiya hai div ke andar, ek relativ hai z=10, ek absolute hai z=0, taki ek ke upar dusra aaye
+
+fir humne routing ke folders bnae 
+
+fir signin
+
+6)AuthForm 
+    isme type pass krdiya, takki isko signin,signup dono me use kr skte hai --> reusable form 
+    {type}: {type:string}  --> humne isme inline type ka type define kr diya 
+    is form me bhi teen input thi toh uska bhi ek component bna diya taaki reusable ho
+    we have used shadcn form, humne form ka schema as "AuthFormSchema" krke "utils" me rkh diya taki reuse ho sake 
+
+7)CustomInput
+    humne isme props me {control,name,label,placeholder} liya isiliye ek CustomInputProps bnaya kyoki hme type define krna tha
+    control:Control<z.infer<typeof AuthformSchema>>,
+    name:FieldPath<z.infer<typeof AuthformSchema>>,
+    control aur name ye hi lenge ya yaad rkhe, isse name hmare AuthFormSchema ke possible types le skta hai 
+
+8)fir signup
+    authform me aur CustomInput add kiye 
+    and AuthFormSchema ko ek function bna diya jo "type" ke basis pe kuch feild ko optional kr deta hai 
+        kyokii agar aisa nhi krenge toh jab bhi form submit hoga toh sari feild check hongi no matter ki vo signup hai ya nhi 
+    fir us AuthFormSchema function se constant bnaya formschema and use use kiya uski place pe in AuthForm.tsx , CustomInput.tsx
+
+9) fir humne "Server Actions" use krna sikha --> like controllers in nodejs 
+        we use "use server" at begening of each funcion   OR   we can define them in a seperate file with "use server" at top 
+        we have define in libs-->actions-->user.actions.ts
+
+10) fir humne "database" set up kiya --> we are using "app-write" inplace of mongodb, {we can use it for database,authentication,etc}
+        1] sbse phle project setup --> then a new databse --> then all collections for that project database
+        2] write all api keys in .env
+        3] define attributes inside each collections, it means like schema of collections in mongodb
+        4] search "server side rendering with nextjs" on docs
+        5] fir appwrite.tc bnae and uske functions likhe and signup setup kiya through docs 
+    fir signin,signup controller set up kiye 
+
+11) error aa rha tha vo -
+    --> useractions, appwrite ko "use server" bnae ke baad bhi error aa rha tha ki main kuch aisa bhej rha hu server component se client component (authform) me 
+            jo nhi bheja ja skta (class,object) but main kuch bhej hi nhi rha tha, 
+            basically vo appwrite ke function ki client side pr chala rha tha 
+            isliye mughe function me seperately "use server" likhna pada tha taab solve hua error 
+
+    --> appwrite ka getLoggedInUser (inside user.actions) hme cookie dekhke btata hai ki user ka active session hai ya nhi 
+    --> basically appwrite me hum ek admin account bnate hai, fir vo account.create krke ek new user create kr skta hai jo sign-up me kiya hai 
+            ya phir account.createEmailPasswordSession krke email,passwrod check krega and session create kr dega, cookie nhi krega , jo sign-in me kiya 
+
+12) fir logout likha 
+        then humne main layout se --> loggedin user ko sidebar,MobileNav me bheja 
+    Footer -
+        then footer bnake usko sidebar, MobileNav me call kiya and user={loggedin user} pass kiya as props

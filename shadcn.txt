@@ -7,3 +7,10 @@ fri uako apni file me use kr skte hai
 
     1) sheet --> in MobileNav.tsx
                  sheet is like extended form of dialog box
+
+    2) form --> combination of react-hook-form,zod,etc
+                sbse phle install
+                form schema bano 
+                then form object bano
+                then submit handler define kro 
+                then <FORM> tage ka use krke form bna dalo

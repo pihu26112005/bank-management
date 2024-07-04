@@ -37,5 +37,7 @@ usePathname hook --> const path = usePathname();
 useQueryparam --> ig 
 useLoaction hooke --> isse pura url access kr kste ho including pathname + query params 
 
+appwrite.ts --> me sikha , ts me agar ksii variable ke aage "!" lgate hai 
+    matlab hum ensure kr dete hai ki ye null toh nhi hoga
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
