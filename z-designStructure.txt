@@ -76,3 +76,36 @@ fir signin
         then humne main layout se --> loggedin user ko sidebar,MobileNav me bheja 
     Footer -
         then footer bnake usko sidebar, MobileNav me call kiya and user={loggedin user} pass kiya as props
+
+13) fir plaid and dwoll setup -
+    1] sbse phle "plaid.ts "bnaya, jisme plaid client ka code tha
+    2] then "PlaidLink" component bnaya, plaid,ts, dwolla.actions.ts vgera setup kiye (in plaid.txt)
+    3] fir user.actions me last ke 3 functon bnaye, and bank collections me schema bnaya 
+    4] fir signup me modify kiya -->
+            ab tak hum sirf, user "auth" me save kr rhe tha, but ab hum database me save krenge 
+            then "city" bhi add kiya user type me, kyokii dwolla ko firstname, lastName, city vgera chahiye hota hai 
+
+14) fir bank.actions set up 
+
+15) fir home page.jsx --> realtime data fetch kiya using "getAccounts" , "getAccount" 
+        we modify the sign-in to return the real user from our databse by using a new function "getUserInfo" inside it
+        then we modify "getLoggedInUser" because phle ye sirf session user(auth) de rha tha ab ye databse me se user de rha hai
+
+16) fir RecentTransactions - 
+        header --> jisme 2 text hai recent transaction, view all
+        TabList hai to switch between accounts 
+        TabContent --> isme Bank Info hai + Full Transaction Table HAI 
+
+17) ab tak -
+            jab home '/' pe ate hai, toh userId se "getAccounts" se are accounts fetch ho jate hai 
+            and first time ane pr id = account[0] ki appwriteitemId hoti hai, but age jub hum tab change krte hai toh id = query string se appwriteitemId access krte hai 
+                and is id se "getAccount" se vo particular account ata hai
+
+            server side - 
+            bank me userId me user collection ke user ki $id hai, but user me jo userId hai vo auth user ki $id hai 
+                - client jo userId (databse vale user ki $id) bhej rha hai, usse sare accounts bheje plaid_client use krke 
+                - client jo bank ki appwriteitemId($id) bhej rha hai, usne us account ka bheja plaid_client use krke 
+
+18) fir transaction-history, my-banks, payment-transfer bnaya 
+
+19) fir pagination bnaya 

@@ -1,0 +1,22 @@
+"app-write" inplace of mongodb, {we can use it for database,authentication,etc}
+
+app setup --> 
+        1] sbse phle project setup --> then a new databse --> then all collections for that project database
+        2] write all api keys in .env
+        3] define attributes inside each collections, it means like schema of collections in mongodb
+        4] search "server side rendering with nextjs" on docs
+        5] fir appwrite.ts bnae and uske functions likhe and signup setup kiya through docs 
+
+
+appwrite concept --> hum ek admin_client bnate hai, jislo apikey se permission di hoti hai
+                     vo hmare end se appwrite app me sare kaam krta hai 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+appwrite procedure --> 
+    s1] appwrite.ts bnae jisme do function hai "createSessionClient" and "createAdminClient", user.actions.ts me "getLoggedInUser" bnaya
+            createSessionClient --> ye cookie dekhke btata hai ki session active hai ya nhi 
+            createAdminClient --> ye admin_client ka instance bnata hai, hmare server ke liye 
+            getLoggedInUser --> ye createSessionClient ko run krke agar session hai, toh konsa user hai vo btata hai 
+    s2] signnin me hum admin_client se "createEmailPasswordSession" ek new session bna rhe hai, and cookie set kr rhe hai
+        signup me hum admin_client se new user create kr rhe hai, "createEmailPasswordSession" ek new session bna rhe hai, and cookie set kr rhe hai

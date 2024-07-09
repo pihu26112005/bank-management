@@ -1,0 +1,46 @@
+plaid ka concept - 1] item --> "login to a financial isntitution"
+                   2] link --> "client side widget that does all ui work"
+
+plaid ka procedure 
+s1)server talks tp plaid on behalf of client (by sending plaid_secret and clientID )
+s2)plaid sends "Link Token" to sever, which server sends to client
+s3)link opens at client side, client sends "Link Token" to plaid, plaid  verify that you are the user of that particular app
+        client signup to bank, now at this time plaid will have item(some kind of token or may be credentials from banks side)
+s4)plaid sends to client a short-lived dirty token called "Public Token", which clinet send to server
+s5)then server sends this "Public Token" to plaid along with clientID and plaid_secret
+s6)then  after verifying, plaid sends an "Access Token" to server, which server stores in database along with corresponding clientID
+s7)now server can access data from plaoid with this "Access Token", clientID, plaid_secret 
+
+
+plaid ka framework --> (just like appwrite)
+        - we create a client in plaid.ts(in lib) and export it, this client will talks to plaid on our behalf
+
+dwolla ka framework --> 
+        - we send sender funding source url, receiver funcing source url, amount 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package - react-plaid-link, plaid
+        - dwolla-v2
+
+
+plaid procedure in this app --
+        s0]     sbse phle "plaid.ts "bnaya, jisme "plaid_client" ka code tha and export kiya
+        s1]     useEffect me "getLinkToken" chalaya jo "CreateLinkToken" ko call kr rha hai, jo server se request marega plaid pe and "Link Token" dega vapis
+                        server side --> "CreateLinkToken" --> "plaid_client" ka use krke plaid se "Link Token" lega through "tokenParams", send to client as response
+        s2]     fir hum "token" me "Link Token" save kr denge, ab client direct interact krega plaid se 
+        s3]     ab ready = true ho jayega and button clickable ho ajyega 
+                        const { open, ready } = usePlaidLink(config); 
+                        onClick={() => open()}
+                button pe click kroge, "usePlaidLink" se plaid pe request kayegi config me "token" ke sath
+                        Link window khulegi, client details bherega
+        s4]     plaid vapis "Public Token" dega and, "onSuccess" function chal jayega 
+                "onSuccess" function server pe "Public Token" bhejega, "exchangePublicToken" ki madad se
+                        server side --> "exchangePublicToken" me "plaid_client" plaid pe request marega by sending "Public Token"
+                                        plaid use "Access Token" and "ItemID" dega 
+                                        fir "Access Token" se "accountsResponse" liya and then usme se "accountData" filter out kiya 
+                                        fir payment proccessor bnane ke liye ek request object bnaya, and use pass krke "processorTokenResponse" liya 
+                                        fir useme se "processorToken" filter out kiya 
+                                        fir "fundingSourceUrl" banaya 
+                                        fir apne databse me client ka Bank_Account bnaya , and revalidat kr diya "/" pe taki changes dikh jaye 
+        s5]     fir router.push('/'); --> ab server ko jo krna hai vo kr lega  

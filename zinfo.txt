@@ -1,4 +1,9 @@
-plaid --> in place of stripe for payment and bank purpose
+plaid -->   helps in connecting apps with banks 
+            helps in bank account verification of user, get transaction history from bank, get balance checks from banks 
+            it is only a middle man between banks and apps to interacts
+
+dwolla -->  in place of stripe for payment purpose
+            helps in money transfer 
 
 app write --> for backend developement
 
@@ -7,6 +12,10 @@ chartjs --> styling library for any kind of chart
 tailwind css --> css
 
 shadcn --> library for css like (tailwind css basically just like tailblocks, flowbite,) 
+
+react-countup --> for showing vo vala effect jisme number counting ki tarah ate hai, used in animatecounter in totalbalancebox
+
+sentery --> to check error occuring after deployment 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -38,6 +47,6 @@ useQueryparam --> ig
 useLoaction hooke --> isse pura url access kr kste ho including pathname + query params 
 
 appwrite.ts --> me sikha , ts me agar ksii variable ke aage "!" lgate hai 
-    matlab hum ensure kr dete hai ki ye null toh nhi hoga
+                matlab hum ensure kr dete hai ki ye null toh nhi hoga
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

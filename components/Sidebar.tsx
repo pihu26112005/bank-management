@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { sidebarLinks } from '@/constants';
 import { cn } from '@/lib/utils';
 import Footer from './Footer';
+import PlaidLink from './PlaidLink';
 
 const Sidebar = ({ user }: SiderbarProps) => {
     const path = usePathname();
@@ -39,20 +40,21 @@ const Sidebar = ({ user }: SiderbarProps) => {
                         >
                             <div className="relative size-6">
                             <Image
+                                key={index}
                                 src={link.imgURL}
                                 alt={link.label}
                                 fill
                                 className={cn({'brightness-[3] invert-0': isActive})}
                             />
                             </div>
-                            <p  className={cn('sidebar-label',{'!text-white':isActive})}>{link.label}</p>
+                            <p key={index} className={cn('sidebar-label',{'!text-white':isActive})}>{link.label}</p>
                             
                         </Link>
                     </>
                 }
                 ) 
                 }
-                user
+                <PlaidLink user={user} />
             </nav>
             <Footer user = {user} />   
         </section>

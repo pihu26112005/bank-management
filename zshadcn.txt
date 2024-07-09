@@ -14,3 +14,7 @@ fri uako apni file me use kr skte hai
                 then form object bano
                 then submit handler define kro 
                 then <FORM> tage ka use krke form bna dalo
+
+    3) tabs --> we can switch easily , used in RecentTransactions 
+
+    4) tables --> in RecentTransactions --> TransactionsTable
